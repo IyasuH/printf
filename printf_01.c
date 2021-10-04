@@ -9,9 +9,9 @@
  */
 int _printf(const char *format, ...)
 {
+int a = 0;
 va_list args;
 va_start(args, format);
-int i = 0;
 while (*format != '\0')
 {
 if (*format == 'c')
@@ -24,9 +24,12 @@ else if (*format == 's')
 char *s = va_arg(args, char*);
 printf("%s\n", s);
 }
+else
+printf("unknown format");
+continue;
 ++format;
-i++;
+a++;
 }
 va_end(args);
-return (i);
+return (a);
 }
