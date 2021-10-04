@@ -4,8 +4,8 @@
 #include <string.h>
 /**
  *_printf - print function
- *@format : the format 
- *Return: the number of characters printed 
+ *@format : the format
+ *Return: the number of characters printed
  */
 int _printf(const char *format, ...)
 {
