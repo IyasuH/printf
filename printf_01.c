@@ -23,24 +23,27 @@ putchar(*traverse);
 traverse++;
 continue;
 }
+while(*traverse != '\0')
+{
 traverse++;
-while (*format != '\0')
+if (*traverse == 'c')
 {
-switch (*traverse)
-{
-case 'c':
 i = va_arg(arg, int);
 printf("%c", i);
 ++length;
-break;
-case 's':
+}
+else if (*traverse == '%')
+{
+printf("%%");
+++length;
+}
+else if (*traverse == 's')
+{
 s = va_arg(arg, char *);
 printf("%s", s);
 length += strlen(s);
+if(strlen(va_arg(arg, char*)) == 0)
 break;
-case '%':
-puts("%%");
-++length;
 }
 }
 }
