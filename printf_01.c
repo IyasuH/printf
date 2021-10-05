@@ -2,37 +2,45 @@
 #include <stdarg.h>
 #include "main.h"
 #include <string.h>
-/**
+0;136;0c/**
  *_printf - print function
  *@format : the format
  *Return: the number of characters printed
  */
 int _printf(const char *format, ...)
 {
-int a = 0;
-va_list args;
-va_start(args, format);
-while (*format != '\0')
+
+const char *traverse;
+unsigned int i;
+char *s;
+int length = 0;
+
+va_list arg;
+va_start(arg, format);
+for(traverse = format; *traverse != '\0'; traverse++)
 {
-if (*format == 'c')
+while(*traverse != '%')
 {
-char c = va_arg(args, int);
-printf("%c", c);
-a++;
+putchar(*traverse);
+traverse++;
+continue;
 }
-else if (*format == 's')
+traverse++;
+switch(*traverse)
 {
-char *s = va_arg(args, char*);
+case 'c' : i = va_arg(arg,int);
+printf("%c", i);
+++length;
+break;
+case 's': s = va_arg(arg, char *);
 printf("%s", s);
-a += strlen(s);
+length += strlen(s);
+break;
+case '%':
+puts("%%");
+++length;
 }
-else if (*format == '%')
-{
-printf("%");
-a++
 }
-++format;
-}
-va_end(args);
-return (a);
+va_end(arg);
+return(length);
 }
