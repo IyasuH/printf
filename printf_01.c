@@ -18,16 +18,18 @@ if (*format == 'c')
 {
 char c = va_arg(args, int);
 printf("%c", c);
-a ++;
+a++;
 }
 else if (*format == 's')
 {
 char *s = va_arg(args, char*);
-if (s != NULL)
-{
 printf("%s", s);
 a += strlen(s);
 }
+else if (*format == '%')
+{
+printf("%");
+a++
 }
 ++format;
 }
