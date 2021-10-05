@@ -16,16 +16,20 @@ while (*format != '\0')
 {
 if (*format == 'c')
 {
-int c = va_arg(args, int);
-printf("%c\n", c);
+char c = va_arg(args, int);
+printf("%c", c);
+a ++;
 }
 else if (*format == 's')
 {
 char *s = va_arg(args, char*);
-printf("%s\n", s);
+if (s != NULL)
+{
+printf("%s", s);
+a += strlen(s);
+}
 }
 ++format;
-a++;
 }
 va_end(args);
 return (a);
