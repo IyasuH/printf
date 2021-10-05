@@ -34,7 +34,6 @@ else if (*traverse == '%')
 {
 printf("%%");
 ++length;
-if (va_arg(arg, int) < 0)
 break;
 }
 else if (*traverse == 's')
