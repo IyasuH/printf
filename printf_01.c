@@ -21,8 +21,9 @@ while (*traverse != '%')
 {
 putchar(*traverse);
 traverse++;
-continue;
 }
+while (*traverse != '\0')
+{
 traverse++;
 if (*traverse == 'c')
 {
@@ -40,8 +41,9 @@ else if (*traverse == 's')
 s = va_arg(arg, char *);
 printf("%s", s);
 length += strlen(s);
-if(strlen(va_arg(arg, char*)) == 0)
+if (strlen(va_arg(arg, char*)) == 0)
 break;
+}
 }
 }
 va_end(arg);
