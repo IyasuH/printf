@@ -24,6 +24,8 @@ traverse++;
 continue;
 }
 traverse++;
+while (*format != '\0')
+{
 switch (*traverse)
 {
 case 'c':
@@ -39,6 +41,7 @@ break;
 case '%':
 puts("%%");
 ++length;
+}
 }
 }
 va_end(arg);
