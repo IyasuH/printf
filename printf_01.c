@@ -23,8 +23,6 @@ putchar(*traverse);
 traverse++;
 continue;
 }
-while(*traverse != '\0')
-{
 traverse++;
 if (*traverse == 'c')
 {
@@ -44,7 +42,6 @@ printf("%s", s);
 length += strlen(s);
 if(strlen(va_arg(arg, char*)) == 0)
 break;
-}
 }
 }
 va_end(arg);
