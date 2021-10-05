@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include "main.h"
 #include <string.h>
-0;136;0c/**
+/**
  *_printf - print function
  *@format : the format
  *Return: the number of characters printed
