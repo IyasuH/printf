@@ -24,9 +24,6 @@ else if (*format == 's')
 char *s = va_arg(args, char*);
 printf("%s\n", s);
 }
-else
-printf("unknown format");
-continue;
 ++format;
 a++;
 }
